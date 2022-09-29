@@ -17,7 +17,7 @@ def main(cascaded, block_orientation, rotate):
     img = canvas(device,background=None,dither=True)
     draw = ImageDraw.Draw(img)
     draw.line((0, 0) + img.size, fill=128)
-    
+    print("Dibujo realizado")
 
 if __name__ == "__main__":
     #cascaded = Number of cascaded MAX7219 LED matrices, default=1
