@@ -24,6 +24,7 @@ def griteRegistro():
     print("Coloque el chip RFID sobre el lector")
     reader.write(nombres)
     print("Escrito")
+
 menu = "Menú de opciones\n\t1. Leer registros.\nIngrese la opciónque desea ejecutar (ej:1)\n"
 
 def showTerminal():

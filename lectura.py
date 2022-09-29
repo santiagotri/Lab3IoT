@@ -22,6 +22,11 @@ def readRFID():
     id, text = reader.read()
     print(text)
 
+def readRFIDReturnText():
+    print("Acerque la tarjeta al lector")
+    id, text = reader.read()
+    return text
+
 menu = "Menú de opciones\n\t1.Leer registros.\nIngrese la opción que desesa ejecutar (ej:4\n"
 
 def showTerminal():

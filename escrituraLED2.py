@@ -6,6 +6,7 @@ from luma.core.render import canvas
 from luna.core.virtual import viewport
 from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
+from lecturaLED import readRFIDReturnText
 
 def main(cascaded, block_orientation, rotate):
     # create matrix device
@@ -13,8 +14,8 @@ def main(cascaded, block_orientation, rotate):
     device = max7219(serial, cascaded=cascaded or 1, bloque_orientation=block_orientation, rotate=rotate or 1)
     #debugging purpose
     print("[-] Matriz initialized")
+    msg = "Bienvenido "+readRFIDReturnText()
 
-    msg = "Y que no me digan en la esquina 'El venao , el venao' que eso a mi me mortifica"
     #debugging purpose
     print("[-] Printing: %s" % msg)
     show_message(device, msg, fill="red" , font=proportional(CP437_FONT), scroll_delay=0.1)

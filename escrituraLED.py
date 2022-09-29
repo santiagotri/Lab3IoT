@@ -25,6 +25,6 @@ if __name__ == "__main__":
     #rotate = choices 0,1,2,3, Rotate display 0=0°, 1=90°, 2=180°, 3=270°, default=0
 
     try:
-        main(cascaded=0, block_orientation=180, rotate=0)
+        main(cascaded=0, block_orientation=180, rotate=3)
     except KeyboardInterrupt:
         pass
