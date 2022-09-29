@@ -6,7 +6,7 @@ from luma.core.render import canvas
 from luna.core.virtual import viewport
 from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageColor
 
 def main(cascaded, block_orientation, rotate):
     # create matrix device
@@ -14,10 +14,11 @@ def main(cascaded, block_orientation, rotate):
     device = max7219(serial, cascaded=cascaded or 1, bloque_orientation=block_orientation, rotate=rotate or 1)
     #debugging purpose
     print("[-] Matriz initialized")
-    img = canvas(device,background=None,dither=True)
+    vista = viewport(device, 8,8, "1",dither=True)
+    img = Image.new("1",(8,8))
     draw = ImageDraw.Draw(img)
-    draw.line((0, 0) + img.size, fill=128)
-    print("Dibujo realizado")
+    draw.rectangle([(0,0),(3,3)], fill=None, outline=None)
+    vista.display(draw)
 
 if __name__ == "__main__":
     #cascaded = Number of cascaded MAX7219 LED matrices, default=1
